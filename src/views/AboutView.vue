@@ -1,14 +1,28 @@
 <template>
   <main>
-    <h1>Exercises</h1>
-   <h1>yo </h1>
-   <h1>yo </h1>
-   <h1>yo </h1>
-   <h1>yo </h1>
+<h1>exercises</h1>
+
+<div class="postsList">
+  <div v-for="post in posts" :key="post.id">
+    <h2>{{ post.userId }}</h2>
+    <p>{{ post.title }}</p>
+  </div>
+</div>
+   
   </main>
 </template>
 
 <script>
+import { mapState} from 'vuex'
+export default {
+  computed: {
+   ...mapState('posts', ['posts'])
+  },
+  created() {
+    this.$store.dispatch('posts/loadPosts')
+  }
+
+}
 </script>
 
 
