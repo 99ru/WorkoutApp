@@ -20,10 +20,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .hero-container {
   width: 100%;
-  padding-top: 80px; /* remove if changing on scroll behaviour*/
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
@@ -46,18 +45,19 @@ export default {
 .hero-content > h1,
 h2 {
   color: #ffffff;
+  font-size: 2rem;
 }
 
 .hero-content > h1 {
-  font-size: 6vw;
+  font-size: 4vw;
   margin-bottom: 10px;
   line-height: 1em;
 }
 
 .hero-content > h2 {
-  font-size: 3vw;
+  font-size: 2vw;
   font-weight: 100;
-  /* margin-bottom: 40px; */
+  margin-bottom: 40px;
 }
 
 button{
