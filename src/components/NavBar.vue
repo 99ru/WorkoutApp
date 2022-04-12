@@ -1,7 +1,7 @@
 <template>
  <div class="nav-container">
    <div class="nav-logo">
-    <img src="@/assets/gymshark.png" >
+    <img src="@/assets/logo.svg" >
    </div>
  </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .nav-container {
   background-color: #000000;
   height: 100px;
@@ -22,8 +22,9 @@ export default {
   z-index: 1;
 }
 .nav-logo > img {
- /*  padding: 3vh; */
   margin-left: 5vh;
   height: 100%;
+  width: 50px;
+ 
 }
 </style>

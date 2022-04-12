@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import AboutView from '../views/AboutView.vue'
 
 const routes = [
-
+  {
+    path: '/',
+    name: 'AboutView',
+    component: AboutView
+  }
 ]
 
 const router = createRouter({
