@@ -1,9 +1,12 @@
 <template>
+<main>
 <div class="workouts" v-for="workout in workouts" :key="workout.id">
     <h1>{{ workout.name }}</h1>
     <h2>{{ workout.bodyAreas }}</h2> 
    <img :src="workout.male.image" >
   </div>
+</main>
+
 </template>
   
 <script setup>
@@ -22,6 +25,7 @@ onBeforeMount(async () => {
 main{
   background-color: whitesmoke;
   display: flex;
+  table-layout: fixed;
   justify-content: center;
   align-items: center;
   flex-flow: column;
@@ -31,6 +35,11 @@ h1{
   font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   color: rgb(15, 14, 14);
+}
+
+img{
+  width: 50%;
+  height: 50%;
 }
 </style>
 
