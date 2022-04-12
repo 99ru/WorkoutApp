@@ -1,16 +1,21 @@
 <template>
  <NavBar/>
  <HeroBanner/>
+ 
+ <main>
+   <h1>Workouts</h1>
+   <WorkOuts/>
+ </main>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue' 
 import HeroBanner from './components/HeroBanner.vue'
-
+import WorkOuts from './components/WorkOuts.vue'
 export default {
   name: 'App',
   components: {
-    NavBar, HeroBanner
+    NavBar, HeroBanner, WorkOuts
   }
 }
 </script>
