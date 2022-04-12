@@ -6,19 +6,30 @@
 </template>
 
 <script>
-export default {};
+export default {
+};
 </script>
 
 <style scoped>
 .toggle-container {
   display: flex;
   justify-content: center;
+  padding: 3rem;
   background: rgb(0, 0, 0);
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
+.toggle-container h2 {
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+}
+
 .toggle-container button {
-  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
   background: transparent;
   color: rgb(251, 251, 251);
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
@@ -34,4 +45,5 @@ export default {};
   background-color: #ffffff;
   color: #000;
 }
+
 </style>
