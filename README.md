@@ -1,3 +1,3 @@
 # gymshark-vue-app
 
-![gymsharkVue.gif](gymsharkVue.gif)
+![demo.gif](gymsharkVue.gif)
