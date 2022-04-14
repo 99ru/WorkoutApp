@@ -6,7 +6,7 @@
       </video>
       <article className="hero-content">
         <h1>We're all gonna make it brah</h1>
-        <h2>-Aziz Zyzz Shavershian</h2>
+        <h3 class="zyzz">-Aziz Zyzz Shavershian</h3>
         <Button>Workouts</Button>
       </article>
     </section>
@@ -20,6 +20,9 @@ export default {
 </script>
 
 <style scoped>
+.zyzz{
+  color: white;
+}
 .hero-container {
   width: 100%;
   height: 100vh;

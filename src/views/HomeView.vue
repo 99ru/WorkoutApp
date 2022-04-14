@@ -1,12 +1,12 @@
 <template>
   <main>
-    <div class="toggle-container">
+    <div class="gender">
       <button @click="toggleMens">Mens</button>
       <button @click="toggleWomens">Womens</button>
     </div>
 
     <div class="wrapper">
-      <div class="flex-container" v-for="workout in workouts" :key="workout.id">
+      <div class="workouts" v-for="workout in workouts" :key="workout.id">
         <div class="card-item-container">
           <img v-if="mens" :src="workout.male.image" />
           <img v-else :src="workout.female.image" />
@@ -14,13 +14,18 @@
 
         <div class="card-item-content">
           <h3>{{ workout.name }}</h3>
-          <button>Details</button>
+          <button @click="showModal = true">Details</button>
+        </div>
+
+        <div class="modal" v-if="showModal">
+          <h3>Mouscle groups: {{ workout.bodyAreas[0] }} {{ workout.bodyAreas[1] }}</h3>
+          <b v-html="workout.transcript"> </b>
+          <button class="close" @click="showModal = false">close</button>
         </div>
       </div>
     </div>
   </main>
 </template>
-
 <script>
 export default {
   components: {},
@@ -28,16 +33,18 @@ export default {
     return {
       mens: true,
       womens: true,
+      showModal: false,
     };
   },
+
   methods: {
     toggleMens() {
-      this.mens = true
-      this.womens = false
+      this.mens = true;
+      this.womens = false;
     },
     toggleWomens() {
-      this.womens = true
-      this.mens = false
+      this.womens = true;
+      this.mens = false;
     },
   },
 
@@ -54,7 +61,7 @@ export default {
 </script>
 
 <style scoped>
-.toggle-container {
+.gender {
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -82,7 +89,7 @@ img {
   width: 100%;
 }
 
-.flex-container {
+.workouts {
   width: 350px;
   padding: 0.3rem;
   flex-flow: column;
@@ -95,6 +102,7 @@ img {
   background-color: #ffffff;
   font-family: "Montserrat", sans-serif;
 }
+
 
 button {
   width: 120px;
@@ -109,18 +117,9 @@ button {
   cursor: pointer;
 }
 
-.workout-details {
-  /* width: 80vw;
-  height: 50vh; */
-  background: rgb(235, 235, 235);
-  color: #000;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding: 9rem;
-  line-height: 1.5;
+.modal {
+  padding: 1rem 2rem;
+  background-color: rgba(216, 213, 213, 0.382);
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
