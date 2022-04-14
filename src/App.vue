@@ -5,7 +5,6 @@
       <HeroBanner />
       <ToggleGender />
     </header>
-
     <router-view />
   </div>
 </template>
@@ -16,10 +15,9 @@ import HeroBanner from "@/components/HeroBanner.vue";
 import ToggleGender from "@/components/ToggleGender.vue";
 
 export default {
-  name: "App",
   components: { NavBar, HeroBanner, ToggleGender },
+  name: "App",
 };
-
 </script>
 
 
@@ -27,7 +25,9 @@ export default {
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
+
 
 
 </style>

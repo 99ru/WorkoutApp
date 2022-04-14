@@ -1,30 +1,66 @@
 <template>
   <main>
-    <WorkOuts />
+ 
+  <div class="flex-container" v-for="workout in workouts" :key="workout.id">
+      <h1> {{ workouts.name }} </h1>
+      <img :src="workout.male.image" />
+      <h2>{{ workout.name }}</h2>
+      <div>
+        Muscles:
+        {{ workout.bodyAreas[0] }} &
+        {{ workout.bodyAreas[1] }}
+      </div>
+    </div>
+
   </main>
 </template>
 
 <script>
-import WorkOuts from "@/components/WorkOuts.vue";
+
 export default {
-  components: { WorkOuts },
+  components: {  },
+
+   async mounted(){
+    await this.$store.dispatch("fetchWorkouts"); // fetch workouts from the api
+  },
+
+   computed: {
+    workouts() {
+      return this.$store.state.workouts; // get the workouts from the store
+    }
+  }
+
 }
 </script>
 
 <style scoped>
+
 main{
   background-color: whitesmoke;
+}
+img {
   display: flex;
-  table-layout: fixed;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
+  flex-direction: row;
+  width: 60%;
 }
 
-h1{
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  color: rgb(15, 14, 14);
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1rem;
+  padding: 40px calc((100% - (255px * 3)) / 2);
+}
+
+button {
+  background-color: black;
+  color: whitesmoke;
+  padding: 0.3rem;
+  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  border: solid 1px rgb(255, 255, 255);
+  width: 150px;
+  border-radius: 1px;
 }
 
 </style>

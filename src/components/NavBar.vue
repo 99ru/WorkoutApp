@@ -1,7 +1,7 @@
 <template>
  <div class="nav-container">
    <div class="nav-logo">
-    <img src="@/assets/logo.svg" >
+    <img src="@/assets/logo.svg">
    </div>
  </div>
 </template>
@@ -25,6 +25,9 @@ export default {
   margin-left: 5vh;
   height: 100%;
   width: 50px;
- 
+}
+
+h1{
+  color:aqua;
 }
 </style>
