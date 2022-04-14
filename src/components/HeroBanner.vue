@@ -10,7 +10,6 @@
         <Button>Workouts</Button>
       </article>
     </section>
-   
   </div>
 </template>
 

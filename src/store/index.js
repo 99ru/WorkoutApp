@@ -3,16 +3,15 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     workouts: [],
-    currentPage: 1,
-    maxPages: 0,
   },
-
   mutations: {
     saveWorkouts(state, workouts) {
       state.workouts = workouts; 
     },
+    saveCurrentPage(state, currentPage) {
+      state.currentPage = currentPage;
+    }
   },
-
   actions: {
     async fetchWorkouts(context) {
       const request = await fetch(
