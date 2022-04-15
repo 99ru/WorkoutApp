@@ -1,4 +1,5 @@
 # Workout App ( Not finished )
+- side project
 ![demo.gif](gymsharkVue.gif)
 
 # TODOS
