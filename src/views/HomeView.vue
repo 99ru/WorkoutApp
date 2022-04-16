@@ -11,16 +11,21 @@
           <img v-if="mens" :src="workout.male.image" />
           <img v-else :src="workout.female.image" />
         </div>
-
         <div class="card-item-content">
           <h3>{{ workout.name }}</h3>
-          <button @click="showModal = true">Details</button>
+          <button @click="handleModal(workout.id)">Details</button>
         </div>
 
-        <div class="modal" v-if="showModal">
-          <h3>Mouscle groups: {{ workout.bodyAreas[0] }} {{ workout.bodyAreas[1] }}</h3>
-          <b v-html="workout.transcript"> </b>
-          <button class="close" @click="showModal = false">close</button>
+        <div class="modal" v-if="showModal === workout.id">
+          <div class="modal-wrapper">
+         
+            <h1>
+              Mouscle groups: {{ workout.bodyAreas[0] }}
+              {{ workout.bodyAreas[1] }}
+            </h1>
+            <b v-html="workout.transcript"> </b>
+            <button class="close" @click="showModal = false">close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -45,6 +50,9 @@ export default {
     toggleWomens() {
       this.womens = true;
       this.mens = false;
+    },
+    handleModal(id) {
+      this.showModal = id;
     },
   },
 
@@ -103,7 +111,6 @@ img {
   font-family: "Montserrat", sans-serif;
 }
 
-
 button {
   width: 120px;
   background-color: rgba(0, 0, 0, 0.887);
@@ -118,8 +125,33 @@ button {
 }
 
 .modal {
-  padding: 1rem 2rem;
-  background-color: rgba(216, 213, 213, 0.382);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+
+.modal-wrapper {
+  width: 80vw;
+  height: 90vh;
+  background: rgb(235, 235, 235);
+  color: #000;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 5rem;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  line-height: 2;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
