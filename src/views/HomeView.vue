@@ -11,17 +11,21 @@
           <img v-if="mens" :src="workout.male.image" />
           <img v-else :src="workout.female.image" />
         </div>
-
         <div class="card-item-content">
           <h3>{{ workout.name }}</h3>
-          <button @click="showModal = true">Details</button>
+          <button @click="handleModal(workout.id)">Details</button>
         </div>
-
-        <div class="modal" v-if="showModal">
-          <h3>Mouscle groups: {{ workout.bodyAreas[0] }} {{ workout.bodyAreas[1] }}</h3>
+ 
+        <div class="modal" v-if="showModal === workout.id">
+          <h3>
+            Mouscle groups: {{ workout.bodyAreas[0] }}
+            {{ workout.bodyAreas[1] }}
+          </h3>
           <b v-html="workout.transcript"> </b>
           <button class="close" @click="showModal = false">close</button>
         </div>
+
+
       </div>
     </div>
   </main>
@@ -46,6 +50,9 @@ export default {
       this.womens = true;
       this.mens = false;
     },
+    handleModal(id) {
+      this.showModal = id;
+    }
   },
 
   computed: {
@@ -103,7 +110,6 @@ img {
   font-family: "Montserrat", sans-serif;
 }
 
-
 button {
   width: 120px;
   background-color: rgba(0, 0, 0, 0.887);
@@ -118,6 +124,8 @@ button {
 }
 
 .modal {
+
+
   padding: 1rem 2rem;
   background-color: rgba(216, 213, 213, 0.382);
 }
