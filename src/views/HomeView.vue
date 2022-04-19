@@ -16,7 +16,7 @@
         <div class="card-item-content">
           <h3>{{ workout.name }}</h3>
           <button @click="handleModal(workout.id)">Details</button>
-          <button> ♡ </button>
+          <button @click="addWorkout(workout)"> ♡ </button>
         </div>
 
                    <!-- details modal -->
@@ -62,6 +62,10 @@ export default {
     handleModal(id) {
       this.showModal = id;
     },
+    addWorkout(id) {
+      this.$store.dispatch("addWorkout" , id );
+    }
+   
   },
 
   computed: {

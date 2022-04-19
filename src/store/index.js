@@ -1,19 +1,20 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: { 
+  state: {
     workouts: [],
-    myWorkoutList: [],
+    myList: [],
   },
+
   mutations: {
     saveWorkouts(state, workouts) {
-      state.workouts = workouts; 
+      state.workouts = workouts;
     },
-    addToList(state, workout) {
-      state.myWorkoutList.push(workout);
-    }
-  
+   ADD_WORKOUT(state, payload) {
+     state.myList.push(payload)
+   }
   },
+
   actions: {
     async fetchWorkouts(context) {
       const request = await fetch(
@@ -22,11 +23,15 @@ export default createStore({
       const data = await request.json();
       context.commit("saveWorkouts", data.exercises);
     },
-
-    addToList(context, workout) {
-      context.commit("addToList", workout);
+    addWorkout(context, workout) {
+      context.commit('ADD_WORKOUT', workout)
     }
-
-   
   },
+
+  getters: {
+    getMyList(state) {
+    return state.myList
+  }
+}
+
 });
