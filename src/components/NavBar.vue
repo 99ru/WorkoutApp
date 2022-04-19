@@ -3,6 +3,13 @@
    <div class="nav-logo">
     <img src="@/assets/logo.svg">
    </div>
+
+   <div class="profile-logo">
+     <router-link :to="'/mypage'">
+     <img src="@/assets/identity.svg">
+     </router-link>
+    
+   </div>
  </div>
 </template>
 <script>
@@ -27,7 +34,11 @@ export default {
   width: 50px;
 }
 
-h1{
-  color:aqua;
+.profile-logo{
+position: absolute;
+right: 5vh;
+bottom: 30px;
+cursor: pointer;
 }
+
 </style>

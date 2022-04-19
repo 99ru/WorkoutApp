@@ -1,16 +1,18 @@
 import { createStore } from "vuex";
 
 export default createStore({
-  state: {
+  state: { 
     workouts: [],
+    myWorkoutList: [],
   },
   mutations: {
     saveWorkouts(state, workouts) {
       state.workouts = workouts; 
     },
-    saveCurrentPage(state, currentPage) {
-      state.currentPage = currentPage;
+    addToList(state, workout) {
+      state.myWorkoutList.push(workout);
     }
+  
   },
   actions: {
     async fetchWorkouts(context) {
@@ -20,5 +22,11 @@ export default createStore({
       const data = await request.json();
       context.commit("saveWorkouts", data.exercises);
     },
+
+    addToList(context, workout) {
+      context.commit("addToList", workout);
+    }
+
+   
   },
 });

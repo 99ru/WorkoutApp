@@ -2,18 +2,18 @@
   <div id="app">
     <header>
       <NavBar />
-      <HeroBanner />
+  
     </header>
-    <router-view />
+    <router-view  />
   </div>
 </template>
 
 <script>
 import NavBar from "@/components/NavBar.vue";
-import HeroBanner from "@/components/HeroBanner.vue";
+/* import HeroBanner from "@/components/HeroBanner.vue"; */
 
 export default {
-  components: { NavBar, HeroBanner },
+  components: { NavBar},
   name: "App",
 };
 </script>

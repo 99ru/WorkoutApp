@@ -1,5 +1,6 @@
 <template>
   <main>
+  <HeroBanner />
     <div class="gender">
       <button @click="toggleMens">Mens</button>
       <button @click="toggleWomens">Womens</button>
@@ -11,29 +12,36 @@
           <img v-if="mens" :src="workout.male.image" />
           <img v-else :src="workout.female.image" />
         </div>
+
         <div class="card-item-content">
           <h3>{{ workout.name }}</h3>
           <button @click="handleModal(workout.id)">Details</button>
+          <button> ♡ </button>
         </div>
 
+                   <!-- details modal -->
         <div class="modal" v-if="showModal === workout.id">
           <div class="modal-wrapper">
-         
-            <h1>
-              Mouscle groups: {{ workout.bodyAreas[0] }}
-              {{ workout.bodyAreas[1] }}
-            </h1>
+            <img v-if="mens" :src="workout.male.image"  />
+            <img v-else :src="workout.female.image"   />
+            <h1>{{ workout.name }}</h1>
+            <h3> Mouscle groups: {{ workout.bodyAreas[0] }} {{ workout.bodyAreas[1] }}</h3>
             <b v-html="workout.transcript"> </b>
             <button class="close" @click="showModal = false">close</button>
           </div>
-        </div>
+        </div> 
+
       </div>
     </div>
   </main>
 </template>
 <script>
+import HeroBanner from "@/components/HeroBanner.vue";
+
 export default {
-  components: {},
+  components: {
+    HeroBanner,
+  },
   data() {
     return {
       mens: true,
@@ -68,7 +76,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .gender {
   display: flex;
   justify-content: center;
@@ -104,6 +112,8 @@ img {
   margin: 2rem;
 }
 
+
+
 .card-item-content {
   padding: 0.5rem;
   height: 120px;
@@ -124,6 +134,18 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.fav-btn:active {
+   background-color: rgba(0, 255, 255, 0.959);
+}
+
+
+
+
+
+
 .modal {
   width: 100%;
   height: 100vh;
@@ -137,6 +159,9 @@ button {
   top: 0;
   bottom: 0;
   z-index: 9999;
+}
+.modal img{
+  width: 20%;
 }
 
 .modal-wrapper {
